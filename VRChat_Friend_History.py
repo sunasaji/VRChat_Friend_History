@@ -1,5 +1,6 @@
 import requests
 import json
+from urllib.parse import quote
 from sys import exit
 
 def end():
@@ -18,7 +19,7 @@ apiKey = 'JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26'# 18/04/12 時点で公開されて�
 data = {'apiKey':apiKey}
 
 try:
-    response = requests.get('https://api.vrchat.cloud/api/1/auth/user/playermoderated', data=data, auth=(credential["username"], credential["password"]))
+    response = requests.get('https://api.vrchat.cloud/api/1/auth/user/playermoderated', data=data, auth=(quote(credential["username"]), quote(credential["password"])))
 
 except Exception as e:
     output_file.write(e.args[1])
