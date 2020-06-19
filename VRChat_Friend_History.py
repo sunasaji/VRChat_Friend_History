@@ -17,9 +17,10 @@ except Exception as e:
 
 apiKey = 'JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26'# 18/04/12 時点で公開されているキー
 data = {'apiKey':apiKey}
+headers = {'User-Agent': ''}
 
 try:
-    response = requests.get('https://api.vrchat.cloud/api/1/auth/user/playermoderated', data=data, auth=(quote(credential["username"]), quote(credential["password"])))
+    response = requests.get('https://api.vrchat.cloud/api/1/auth/user/playermoderated', data=data, headers=headers, auth=(quote(credential["username"]), quote(credential["password"])))
 
 except Exception as e:
     output_file.write(e.args[1])
